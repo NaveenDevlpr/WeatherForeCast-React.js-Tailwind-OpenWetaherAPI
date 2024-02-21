@@ -4,52 +4,33 @@ import { MdClear } from "react-icons/md";
 
 const Navbar = ({setSearchQuery,current}) => {
 
-  const [message,setMessage]=useState('')
 
   const [search,setSearch]=useState('')
 
-  useEffect(()=>{
-    updateMessage()
-  },[])
-
-  const updateMessage=()=>{
-    const getHour=new Date().getHours()
-
-    if(getHour < 12){
-      setMessage('Morning')
-    }
-    else if(getHour > 12 && getHour < 17)
-    {
-      setMessage('Afternoon')
-    }
-    else{
-      setMessage('Evening')
-    }
-  }
 
   const clearResult=()=>{
     setSearch('')
   }
 
   const searchResult=()=>{
-
-    if(!current.lat==='undefined' || !current.lon==='undefined'){
+    
       setSearchQuery((prevValue)=>(
         {...prevValue,q:search}
       ))
-    }
-    else{
-      alert('Invalid latitude or longitude values!');
-      return;
-    }
-   
+    
   }
+
+  useEffect(()=>{
+   
+  },[])
+
   return (
     <div className='flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-8 sm:items-center sm:justify-between w-full'>
-      <div>
-          <h2 className='text-2xl text-black font-medium font-poppins'>
-              Good {`${message}`}
+      <div className='flex flex-row space-x-8 items-center'>
+          <h2 className='text-3xl text-black font-semibold font-poppins'>
+              WeatherForecast.
           </h2>
+       
       </div>
       <div className='flex flex-row items-center space-x-2'>
           <div className="relative flex-grow">

@@ -12,40 +12,46 @@ const getWeatherData=(type,searchParam)=>{
 }
 
 const getCurrentNeededValues=(data)=>{
- const {
-    coord:{lon,lat},
-    main:{temp,feels_like,temp_min,temp_max,humidity,pressure},
-    name,
-    dt,
-    sys:{country,sunrise,sunset},
-    weather,
-    visibility,
-    wind:{speed}
+    if(data && data.coord){
+        const {
+            coord:{lon,lat},
+            main:{temp,feels_like,temp_min,temp_max,humidity,pressure},
+            name,
+            dt,
+            sys:{country,sunrise,sunset},
+            weather,
+            visibility,
+            wind:{speed}
+        
+         }=data
+        
+         const {main:details,icon}=weather[0]
+         return{
+            lat,lon,temp,feels_like,temp_max,temp_min,humidity,name,dt,country,sunrise,sunset,details,icon,speed,pressure,visibility 
+         }
+    }
+    else{
+        alert('The Latitide and Longitude are incorrect.\nMaybe the name of the location is changed or you have searched the wrong location.\nEnter a correct location / a city name')
+        return false
+    }
+ 
 
- }=data
-
- const {main:details,icon}=weather[0]
-
-
-
- return{
-    lat,lon,temp,feels_like,temp_max,temp_min,humidity,name,dt,country,sunrise,sunset,details,icon,speed,pressure,visibility 
- }
+ 
 }
 
 const getNeededValues=async(searchParams)=>{
 
     const Currentdata=await getWeatherData("weather",searchParams).then((data)=>getCurrentNeededValues(data))
 
+   if(Currentdata){
     const {lat,lon}=Currentdata;
-
 
     const forecastData=await getWeatherData('forecast',{
         lat,lon,units:'metric'
     }).then((getForecastData))
 
     return {forecastData,Currentdata}
-
+   }
 
 }
 

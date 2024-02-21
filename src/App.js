@@ -14,11 +14,16 @@ function App() {
   const getData=async()=>{
     const data=await getNeededValues({...searchQuery,units})
 
+   if(data){
     const {Currentdata,forecastData}=data
 
     setCurrent(Currentdata)
 
     setForecast(forecastData)
+
+   }
+
+   
    
   }
 
