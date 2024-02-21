@@ -17,15 +17,6 @@ ChartJS.register(
 )
 
 const LineChart = ({forecast}) => {
-
-    const [value,setValue]=useState([])
-
-    const getDayFromDate = (timestamp) => {
-        const date = new Date(timestamp);
-        const options = { weekday: 'long' }; 
-        return date.toLocaleDateString('en-US', options);
-      };
-    
      
     const data={
         labels:forecast.map((data)=>{
@@ -68,18 +59,19 @@ const LineChart = ({forecast}) => {
               ticks: {
                 display:true,
                 font: {
-                  size:  14,
+                  size:  12,
                   weight: 'normal',
+                  family:'Poppins,'
                 },
               },
               title: {
-                display: false,
+                display: true,
                 text: 'Temperature',
                 padding: {
                   bottom: 0,
                 },
                 font: {
-                  size: 16,
+                  size: 12,
                   family: 'Poppins',
                 },
               },
@@ -92,18 +84,19 @@ const LineChart = ({forecast}) => {
               ticks: {
                 display:true,
                 font: {
-                  size:  14,
+                  size:  12,
                   weight: 'normal',
+                  family:'Poppins'
                 },
               },
               title: {
                 display: true,
                 text: 'Day',
                 padding: {
-                  top: 5,
+                  top: 2,
                 },
                 font: {
-                  size: 16,
+                  size: 12,
                   family: 'Poppins',
                 },
               },

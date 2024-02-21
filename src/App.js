@@ -29,7 +29,7 @@ function App() {
 
  
  useEffect(()=>{
-   getData()
+  // getData()
  },[searchQuery])
   return (
     <div className='max-w-7xl mx-auto p-4 flex flex-col space-y-5'>

@@ -41,7 +41,7 @@ const Navbar = ({setSearchQuery,current}) => {
               />
               {
                 search ?(<div className="absolute inset-y-0 right-0 pr-3 flex cursor-pointer items-center" onClick={()=>{clearResult()}}>
-                <MdClear className='text-gray-400 ' />
+                <MdClear className='text-black ' />
             </div>):(
                   <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                   <IoSearchSharp className='text-gray-400/70'/>

@@ -60,10 +60,10 @@ const Banner = ({current}) => {
               <p className='text-white max-sm:text-sm text-[20px] max-sm:ml-0 ml-2 font-light'>{`${current.name}, ${current.country}`}</p>
           </div>
           <div className='flex flex-col items-end h-full justify-end'>
-              <h2 className='text-2xl text-white font-light font-poppins text-end'>
+              <h2 className='max-sm:text-sm text-2xl text-white font-light font-poppins text-end'>
                   Good {`${message}!!`}
               </h2>
-              <h2 className='text-white text-3xl font-semibold'>
+              <h2 className='text-white max-sm:text-xl text-3xl font-semibold'>
                 {currentTime}
               </h2>
               <h2 className='text-white max-sm:text-sm text-[20px] font-light'>
