@@ -125,7 +125,7 @@ return formattedTime
             })
           }
         </div>
-        <LineChart/>
+        <LineChart forecast={forecast}/>
       </div>
     </div>
   )
