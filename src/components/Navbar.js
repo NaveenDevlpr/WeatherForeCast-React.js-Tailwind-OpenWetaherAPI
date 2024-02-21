@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { IoSearchSharp } from "react-icons/io5";
 import { MdClear } from "react-icons/md";
 
-const Navbar = ({setSearchQuery}) => {
+const Navbar = ({setSearchQuery,current}) => {
 
   const [message,setMessage]=useState('')
 
@@ -32,9 +32,17 @@ const Navbar = ({setSearchQuery}) => {
   }
 
   const searchResult=()=>{
-    setSearchQuery((prevValue)=>(
-      {...prevValue,q:search}
-    ))
+
+    if(!current.lat==='undefined' || !current.lon==='undefined'){
+      setSearchQuery((prevValue)=>(
+        {...prevValue,q:search}
+      ))
+    }
+    else{
+      alert('Invalid latitude or longitude values!');
+      return;
+    }
+   
   }
   return (
     <div className='flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-8 sm:items-center sm:justify-between w-full'>

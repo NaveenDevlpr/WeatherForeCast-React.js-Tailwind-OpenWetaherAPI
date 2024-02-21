@@ -14,11 +14,12 @@ const getWeatherData=(type,searchParam)=>{
 const getCurrentNeededValues=(data)=>{
  const {
     coord:{lon,lat},
-    main:{temp,feels_like,temp_min,temp_max,humidity},
+    main:{temp,feels_like,temp_min,temp_max,humidity,pressure},
     name,
     dt,
     sys:{country,sunrise,sunset},
     weather,
+    visibility,
     wind:{speed}
 
  }=data
@@ -28,7 +29,7 @@ const getCurrentNeededValues=(data)=>{
 
 
  return{
-    lat,lon,temp,feels_like,temp_max,temp_min,humidity,name,dt,country,sunrise,sunset,details,icon,speed
+    lat,lon,temp,feels_like,temp_max,temp_min,humidity,name,dt,country,sunrise,sunset,details,icon,speed,pressure,visibility 
  }
 }
 

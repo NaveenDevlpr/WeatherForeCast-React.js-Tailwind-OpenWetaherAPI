@@ -24,12 +24,12 @@ function App() {
 
  
  useEffect(()=>{
-   //getData()
+   getData()
  },[searchQuery])
   return (
     <div className='max-w-7xl mx-auto p-4 flex flex-col space-y-5'>
       <header>
-          <Navbar setSearchQuery={setSearchQuery}/>
+          <Navbar setSearchQuery={setSearchQuery} current={current}/>
       </header>
       <main className='space-y-5'>
           <Banner current={current}/>
