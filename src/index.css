@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    background: #F5F5F5;
+}
+@layer base{
+    input[type="text"]::placeholder{
+    @apply font-poppins text-gray-400/70
+  }
+  }
