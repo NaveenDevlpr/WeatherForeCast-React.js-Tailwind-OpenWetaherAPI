@@ -47,7 +47,7 @@ const getNeededValues=async(searchParams)=>{
     const {lat,lon}=Currentdata;
 
     const forecastData=await getWeatherData('forecast',{
-        lat,lon,units:'metric'
+        lat,lon,units:searchParams.units
     }).then((getForecastData))
 
     return {forecastData,Currentdata}
