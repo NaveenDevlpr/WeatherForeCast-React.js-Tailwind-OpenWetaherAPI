@@ -41,7 +41,7 @@ return formattedTime
     },
     {
       title:'Wind Rate',
-      value:current.speed,
+      value:current.speed+"m/s",
       icon:<FaWind className='w-8 h-8'/>
     },
     {
@@ -73,8 +73,8 @@ return formattedTime
   };
 
   return (
-    <div className='flex md:flex-row flex-col font-poppins md:space-x-8'>
-      <div className='lg:w-2/5 w-full flex flex-col space-y-5 mb-6'>
+    <div className='flex flex-col md:flex-row font-poppins md:space-x-8'>
+      <div className='flex flex-col w-full mb-6 space-y-5 lg:w-2/5'>
         <div className='grid grid-cols-2 grid-rows-2 gap-3'>
           {
           data?(  data.map((d,i)=>{
@@ -85,7 +85,7 @@ return formattedTime
                 }
               <div className=''>
                 <h2 className='font-light text-[13px] text-black'>{d.title}</h2>
-                <h2 className='font-bold text-md lg:text-lg text-black'>{`${d.value}`}</h2>
+                <h2 className='font-bold text-black text-md lg:text-lg'>{`${d.value}`}</h2>
               </div>
           </div>
             )
@@ -102,7 +102,7 @@ return formattedTime
         </div>
 
         <div className='bg-black  shadow-xl shadow-gray-300/90 rounded-xl w-full h-[100px] p-4'>
-          <h2 className='text-white font-semibold text-lg'>
+          <h2 className='text-lg font-semibold text-white'>
             Today's Report
           </h2>
           <div className='flex flex-row items-center justify-between'>
@@ -121,22 +121,22 @@ return formattedTime
           </div>
         </div>
       </div>
-      <div className='lg:w-3/5 w-full flex flex-col mb-6'>
-        <h2 className='text-3xl text-black font-semibold'>
+      <div className='flex flex-col w-full mb-6 lg:w-3/5'>
+        <h2 className='text-3xl font-semibold text-black'>
           Daily Forecast
         </h2>
-        <div className='w-full h-full grid lg:grid-cols-4 md:grid-cols-2 grid-cols-2 gap-4 md:gap-6 lg:gap-4  lg:h-1/3 mt-4'>
+        <div className='grid w-full h-full grid-cols-2 gap-4 mt-4 lg:grid-cols-4 md:grid-cols-2 md:gap-6 lg:gap-4 lg:h-1/3'>
           {
            forecast?(
             forecast.slice(1,5).map((data,i)=>{
               return(
                 <div key={i} className='rounded-xl hover:scale-105 md:hover:scale-125 transition-all duration-500 cursor-pointer ease-in-out bg-black/90 shadow-gray-300/90 shadow-xl flex flex-col justify-evenly items-center w-full md:w-[140px] p-2'>
-                    <h2 className='text-white font-bold text-sm '>{getDayFromDate(data.dt_txt)}</h2>
+                    <h2 className='text-sm font-bold text-white '>{getDayFromDate(data.dt_txt)}</h2>
                     <div className='flex flex-col items-center justify-center -space-y-2'>
                       <img src={`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} className='w-12 h-12' alt='cloud'></img>
                       <h2 className='text-white font-normal text-[12px]'>{`${data.weather[0].description}`}</h2>
                     </div>
-                    <h2 className='text-white font-semibold text-sm'>
+                    <h2 className='text-sm font-semibold text-white'>
                       {data.main.temp}&deg;
                     </h2>
                 </div>
@@ -153,7 +153,7 @@ return formattedTime
            )
           }
         </div>
-       <div className='lg:h-2/3  w-full md:w-[90%] lg:w-full flex-1 mt-4 bg-gray-100 shadow-xl shadow-gray-300/90 rounded-xl ring-1 ring-gray-300/90 p-2'>
+       <div className='lg:h-2/3 h-full w-full md:w-[90%] lg:w-full flex-1 mt-4 bg-gray-100 shadow-xl shadow-gray-300/90 rounded-xl ring-1 ring-gray-300/90 p-2'>
         <LineChart forecast={forecast}/>
        </div>
       </div>

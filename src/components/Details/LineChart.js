@@ -5,7 +5,8 @@ import{
     LineElement,
     CategoryScale,
     PointElement,
-    LinearScale
+    LinearScale,
+    Filler
 } from 'chart.js'
 
 
@@ -13,7 +14,8 @@ ChartJS.register(
     LineElement,
     CategoryScale,
     LinearScale,
-    PointElement
+    PointElement,
+    Filler
 )
 
 const LineChart = ({forecast}) => {
@@ -26,18 +28,24 @@ const LineChart = ({forecast}) => {
         }),
         datasets:[{
             data:forecast.map((data)=>data.main.temp),
-            backgroundColor: function(context) {
-                const ctx = context.chart.ctx;
-                const gradient = ctx.createLinearGradient(0, 0, 0, 200);
-                gradient.addColorStop(0, "#222222");
-                gradient.addColorStop(1, "#222222");
-                return gradient;
-              },
-            fill: true,
+            borderWidth: 2.5,
             borderColor: '#4CAF50',
             pointBorderColor:'#222222',
             pointBorderWidth:4,
-            tension:0.5
+            tension:0.5,
+            backgroundColor: (context)=>{
+              const colors=[
+                '#87cc89',
+                '#f3edf2'
+              ]
+              const {ctx,data,chartArea:{top,bottom}}=context.chart
+              const gradient=ctx.createLinearGradient(0,0,0,300)
+              gradient.addColorStop(0,colors[0])
+              gradient.addColorStop(0.5,colors[1])
+              
+              return gradient
+            },
+            fill: true,
         }]
 
     }
@@ -103,7 +111,7 @@ const LineChart = ({forecast}) => {
             },
           },
           
-        maintainAspectRatio: false
+        maintainAspectRatio: false,
         };
   return (
     <div className='w-full h-full'>

@@ -50,20 +50,20 @@ const Banner = ({current}) => {
 
   return (
     <div className='w-full max-sm:h-[200px] h-[300px] rounded-3xl shadow-xl shadow-gray-300/90 bg-white overflow-hidden relative font-poppins'>
-        <img className=' w-full h-full object-cover object-top ' src={weather} alt=''>
+        <img className='object-cover object-top w-full h-full ' src={weather} alt=''>
         </img>
-        <div className='absolute bottom-0 w-full flex flex-row items-center justify-between p-4 h-full'>
-          <div className='flex flex-col  h-full justify-end'>
-              <h2 className='text-white text-[100px] max-sm:text-[35px] font-light -mb-2 md:-mb-6 '>
+        <div className='absolute bottom-0 flex flex-row items-center justify-between w-full h-full p-4'>
+          <div className='flex flex-col justify-end h-full'>
+              <h2 className='text-white text-[100px] max-sm:text-[35px] font-light sm:-mb-6 -mb-2'>
                   {`${Math.floor(current.temp)}`}&deg;
               </h2>
               <p className='text-white max-sm:text-sm text-[20px] max-sm:ml-0 ml-2 font-light'>{`${current.name}, ${current.country}`}</p>
           </div>
-          <div className='flex flex-col items-end h-full justify-end'>
-              <h2 className='max-sm:text-sm text-2xl text-white font-light font-poppins text-end'>
+          <div className='flex flex-col items-end justify-end h-full'>
+              <h2 className='text-2xl font-light text-white max-sm:text-sm font-poppins text-end'>
                   Good {`${message}!!`}
               </h2>
-              <h2 className='text-white max-sm:text-xl text-3xl font-semibold'>
+              <h2 className='text-3xl font-semibold text-white max-sm:text-xl'>
                 {currentTime}
               </h2>
               <h2 className='text-white max-sm:text-sm text-[20px] font-light'>

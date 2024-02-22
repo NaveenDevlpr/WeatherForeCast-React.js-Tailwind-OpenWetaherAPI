@@ -22,12 +22,7 @@ function App() {
     setForecast(forecastData)
 
    }
-
-   
-   
   }
-
- 
  useEffect(()=>{
   getData()
  },[searchQuery,units])
